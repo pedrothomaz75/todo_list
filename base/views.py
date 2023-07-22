@@ -30,6 +30,7 @@ class RegisterPage(FormView):
         user = form.save()
         if user is not None:
             login(self.request, user)
+            return reverse_lazy('tasks')
         return super(RegisterPage, self).form_valid(form)
     
     def get(self, *args, **kwargs):
